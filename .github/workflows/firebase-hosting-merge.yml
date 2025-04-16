@@ -8,6 +8,7 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest # Використовуємо Ubuntu як середовище для виконання
+    environment: development # Перевіряємо, чи використовуємо правильне середовище для секретів
 
     steps:
       - name: Check out repository
