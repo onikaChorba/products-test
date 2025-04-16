@@ -3,26 +3,26 @@ name: Deploy to Firebase Hosting
 on:
   push:
     branches:
-      - main # або інша гілка, на яку ти хочеш робити деплої
+      - main # Виконувати деплой на основну гілку
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
+  deploy:
+    runs-on: ubuntu-latest # Використовуємо Ubuntu як середовище для виконання
 
     steps:
-      - name: Checkout code
+      - name: Check out repository
         uses: actions/checkout@v2
 
       - name: Set up Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
-          node-version: "16"
+          node-version: "16" # Використовуємо Node.js 16 (можеш вибрати іншу версію)
 
       - name: Install dependencies
-        run: npm install
+        run: |
+          npm install -g firebase-tools  # Встановлюємо Firebase CLI глобально
+          npm install  # Встановлюємо інші залежності
 
-      - name: Build project
-        run: npm run build # Або команда для побудови твого проєкту
-
-      - name: Deploy to Firebase
-        run: firebase deploy --only hosting --token ${{ secrets.FIREBASE_TOKEN }}
+      - name: Deploy to Firebase Hosting
+        run: |
+          firebase deploy --only hosting --token ${{ secrets.FIREBASE_TOKEN }}  # Виконуємо деплой
