@@ -3,7 +3,7 @@ name: Deploy to Firebase Hosting
 on:
   push:
     branches:
-      - main # Виконувати деплой на основну гілку
+      - main # Виконуємо деплой на основну гілку
 
 jobs:
   deploy:
@@ -16,7 +16,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: "16" # Використовуємо Node.js 16 (можеш вибрати іншу версію)
+          node-version: "16" # Використовуємо Node.js 16
 
       - name: Install dependencies
         run: |
