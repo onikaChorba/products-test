@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import "./App.css";
-import db from "./firebase";
+import db from "./ firebase.config";
 import { collection, onSnapshot, addDoc } from "firebase/firestore";
 
 function App() {
