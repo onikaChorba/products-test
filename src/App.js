@@ -46,7 +46,7 @@ function App() {
     setDescription("");
     e.target.reset();
   };
-
+  console.log(process.env.REACT_APP_FIREBASE_API_KEY, "key");
   return (
     <div className="App">
       <h2>Додати продукт</h2>
