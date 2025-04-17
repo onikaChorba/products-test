@@ -10,7 +10,12 @@ function App() {
 
   useEffect(() => {
     const unsub = onSnapshot(collection(db, "products"), (snapshot) => {
-      setProducts(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+      const fetchedProducts = snapshot.docs.map((doc) => ({
+        ...doc.data(),
+        id: doc.id,
+      }));
+      console.log(fetchedProducts, "fetchedProducts"); // Перевірка даних
+      setProducts(fetchedProducts);
     });
 
     return () => unsub();
