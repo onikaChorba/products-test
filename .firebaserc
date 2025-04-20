@@ -3,20 +3,13 @@
     "default": "test-product-d3789"
   },
   "targets": {
-    "rid1-test": {
+    "test-product-d3789": {
       "hosting": {
         "dev": [
           "test-product-d3789-development"
         ],
         "prod": [
           "test-product-d3789-production"
-        ]
-      }
-    },
-    "test-product-d3789": {
-      "hosting": {
-        "dev": [
-          "test-product-d3789"
         ]
       }
     }
