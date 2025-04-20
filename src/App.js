@@ -49,7 +49,7 @@ function App() {
   console.log(process.env.REACT_APP_FIREBASE_API_KEY, "key");
   return (
     <div className="App">
-      <h2>Додати продукт DEV</h2>
+      <h2>Додати продукт Prod</h2>
       <form onSubmit={handleAddProduct}>
         <input
           type="text"
