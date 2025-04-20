@@ -12,6 +12,14 @@
           "test-product-d3789-production"
         ]
       }
+    },
+    "test-product-d3789": {
+      "hosting": {
+        "dev": [
+          "test-product-d3789"
+        ]
+      }
     }
-  }
+  },
+  "etags": {}
 }
