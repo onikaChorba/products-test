@@ -23,7 +23,7 @@ jobs:
       - name: Deploy to Dev
         if: github.ref == 'refs/heads/dev'
         run: |
-          firebase deploy --only hosting:dev \
+          firebase deploy --only hosting:development \
             --non-interactive \
             --token "${{ secrets.FIREBASE_TOKEN }}" \
             -m "RunID ${{ github.run_id }} Commit SHA ${{ github.sha }}"
