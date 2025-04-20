@@ -1,12 +1,17 @@
 {
-  "projects": {},
-  "targets": {
-    "test-product-d3789": [
-      "prod"
-    ],
-    "test-product-dev": [
-      "dev"
-    ]
+  "projects": {
+    "default": "test-product-d3789"
   },
-  "etags": {}
+  "targets": {
+    "rid1-test": {
+      "hosting": {
+        "dev": [
+          "test-product-d3789-development"
+        ],
+        "prod": [
+          "test-product-d3789-production"
+        ]
+      }
+    }
+  }
 }
