@@ -1,15 +1,10 @@
 {
-  "projects": {
-    "default": "test-product-d3789"
-  },
   "targets": {
-    "test-product-d3789": {
-      "hosting": {
-        "dev": [
-          "test-product"
-        ]
-      }
-    }
-  },
-  "etags": {}
+    "test-product-d3789": [
+      "prod"
+    ],
+    "test-product-dev": [
+      "dev"
+    ]
+  }
 }
