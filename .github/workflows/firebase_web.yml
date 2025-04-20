@@ -27,6 +27,6 @@ jobs:
         run: firebase deploy --only hosting:prod --non-interactive --token "${{ secrets.FIREBASE_TOKEN }}" -m "RunID ${{ github.run_id }} Commit SHA ${{ github.sha }}"
 
       - name: Archive build Artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v2
         with:
           path: build
