@@ -1,18 +1,14 @@
-name: Deploy to Firebase Hosting on PR
-
-on:
-  push:
-    branches:
-      - main
-      - master
-
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-      # Підключаємо змінні середовища
+      - name: Set up Firebase CLI
+        run: |
+          curl -sL https://firebase.tools | bash
+
       - name: Set environment variables
         run: |
           echo "REACT_APP_FIREBASE_API_KEY=${{ secrets.REACT_APP_FIREBASE_API_KEY }}" >> $GITHUB_ENV
@@ -22,17 +18,12 @@ jobs:
           echo "REACT_APP_FIREBASE_MESSAGING_SENDER_ID=${{ secrets.REACT_APP_FIREBASE_MESSAGING_SENDER_ID }}" >> $GITHUB_ENV
           echo "REACT_APP_FIREBASE_APP_ID=${{ secrets.REACT_APP_FIREBASE_APP_ID }}" >> $GITHUB_ENV
           echo "REACT_APP_FIREBASE_MEASUREMENT_ID=${{ secrets.REACT_APP_FIREBASE_MEASUREMENT_ID }}" >> $GITHUB_ENV
+          echo "FIREBASE_AUTH_TOKEN=${{ secrets.FIREBASE_AUTH_TOKEN }}" >> $GITHUB_ENV
 
-      - run: npm ci
-      - run: npm run build
-
-      # Деплой для прод або дев в залежності від гілки
-      - name: Deploy to Firebase Hosting
+      - name: Deploy to Firebase
         run: |
           if [ $GITHUB_REF == "refs/heads/main" ]; then
             firebase deploy --only hosting:prod
           else
             firebase deploy --only hosting:dev
           fi
-        env:
-          FIREBASE_AUTH_TOKEN: ${{ secrets.FIREBASE_AUTH_TOKEN }}

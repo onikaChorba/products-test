@@ -1,4 +1,5 @@
 {
+  "projects": {},
   "targets": {
     "test-product-d3789": [
       "prod"
@@ -6,5 +7,6 @@
     "test-product-dev": [
       "dev"
     ]
-  }
+  },
+  "etags": {}
 }
