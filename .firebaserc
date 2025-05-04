@@ -1,17 +1,18 @@
 {
-  "hosting": [
-    {
-      "target": "dev",
-      "site": "test-product-d3789",
-      "public": "build",
-      "ignore": ["firebase.json", "**/.*", "**/node_modules/**"]
-    },
-    {
-      "target": "prod",
-      "site": "test-product-d3789-prod",
-      "public": "build",
-      "ignore": ["firebase.json", "**/.*", "**/node_modules/**"]
+  "projects": {
+    "default": "test-product-d3789"
+  },
+  "targets": {
+    "test-product-d3789": {
+      "hosting": {
+        "dev": [
+          "test-product-d3789"
+        ],
+        "prod": [
+          "test-product-d3789-prod"
+        ]
+      }
     }
-  ]
+  },
+  "etags": {}
 }
- 
