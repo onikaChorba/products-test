@@ -10,7 +10,7 @@
       ]
     },
     {
-      "target": "prod",
+      "site": "test-product-d3789", 
       "public": "build",
       "ignore": [
         "firebase.json",
